@@ -15,7 +15,8 @@
     "data:import:csv": "tsx scripts/import_csv_dataset.ts",
     "data:import:bgg": "tsx scripts/import_bgg.ts",
     "data:validate": "tsx scripts/validate_datasets.ts",
-    "data:refresh": "npm run data:fetch:agricolacards && npm run data:ingest:norge && npm run data:baseline:norge-hand && npm run data:validate"
+    "data:refresh": "npm run data:fetch:agricolacards && npm run data:ingest:norge && npm run data:baseline:norge-hand && npm run data:validate",
+    "deploy": "npm run build && wrangler deploy"
   },
   "dependencies": {
     "react": "^18.3.1",
@@ -36,6 +37,7 @@
     "typescript": "~5.6.2",
     "vite": "^5.4.10",
     "vite-plugin-pwa": "^0.20.5",
-    "vitest": "^2.1.4"
+    "vitest": "^2.1.4",
+    "wrangler": "^4.84.1"
   }
 }

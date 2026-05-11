@@ -2,6 +2,8 @@
 
 General Agricola card lookup PWA with card text and dataset-specific statistics.
 
+Built and maintained by Aslak Hellevik. Card text and stats are sourced from publicly available pages (see `docs/datasets.md`); each shipped dataset carries a `licenseNote` field declaring it approved for publication.
+
 ## What it does
 
 1. Mobile-friendly lookup with installable PWA support.
@@ -62,4 +64,14 @@ See `docs/datasets.md` for source details, templates, and output files.
 5. `public/baselines/` precomputed Monte Carlo hand-strength baselines
 6. `docs/datasets.md` data source and refresh documentation
 
-If your GitHub repository name is not `agri_stat_displayer`, update `VITE_BASE_PATH` in `.github/workflows/deploy.yml`.
+## Hosting
+
+Production build is deployed as a Cloudflare Worker (configured in `wrangler.jsonc`). The live URL is `https://agri-stat-displayer.aslakhellevik2002.workers.dev`; a custom subdomain will be added once the parent zone is on Cloudflare.
+
+```bash
+npm run deploy
+```
+
+## License
+
+Released under the MIT License — see `LICENSE`.
