@@ -1,83 +1,80 @@
 # agri_stat_displayer
 
-General Agricola card lookup PWA with card text and dataset-specific statistics.
+Agricola card lookup PWA: search card text and compare per-card play statistics across
+datasets. Phone-first, installable, works offline.
 
-Built and maintained by Aslak Hellevik. Card text and statistics are sourced from publicly available pages (see `docs/datasets.md`); each shipped dataset carries a `licenseNote` field recording where the data came from and on what terms.
+Live at <https://agricola.aslakhellevik.no>.
 
 ## Data and takedown
 
-This is a non-commercial fan tool. The shipped datasets are snapshots of publicly available pages from [AgricolaCards](https://www.agricolacards.com/) and [Agricola Norge](https://agricola.no/), and **no redistribution licence has been granted for either**. Agricola card text remains the copyright of its publisher.
+This is a non-commercial fan tool. The shipped datasets are snapshots of publicly
+available pages from [AgricolaCards](https://www.agricolacards.com/) and
+[Agricola Norge](https://agricola.no/), and **no redistribution licence has been granted
+for either**. Agricola card text remains the copyright of its publisher.
 
-If you hold rights to any of this material and would like it removed, email <ah@aslakhellevik.no> and I will take it down. The MIT licence below covers the source code of this project only, not the datasets in `public/datasets/`.
+If you hold rights to any of this material and would like it removed, email
+<ah@aslakhellevik.no> and I will take it down. The MIT licence covers the source code of
+this project only, not the datasets in `public/datasets/`.
 
 ## What it does
 
-1. Mobile-friendly lookup with installable PWA support.
-2. Search cards by name and card text.
-3. Filter by available card type and edition in the active dataset.
-4. Switch between datasets and view source/snapshot metadata.
-5. Show per-card stats in both list and detail views (including PWR where available).
-6. Show import status for each dataset at the bottom of the page.
+- Search cards by name and card text; filter by card type and edition.
+- Switch between datasets, each with its own source, snapshot date and licence note.
+- Show per-card statistics in list and detail views, including ADP and PWR where the
+  dataset provides them.
+- For the Agricola Norge 4-player data, score an opening hand against a precomputed
+  Monte Carlo baseline.
 
-## Built-in datasets
-
-1. `agricolacards_get_cards_local` (card metadata snapshot)
-2. `agricola_norge_full_4p_play_agricola` (Agricola Norge stats snapshot)
+Values are not comparable across datasets — the app says so, and only ever compares
+within the active one.
 
 ## Quick start
+
+Requires Node 20 or newer.
 
 ```bash
 npm install
 npm run dev
 ```
 
-Other common commands:
-
 ```bash
-npm run test:run
-npm run build
+npm run test:run   # vitest
+npm run build      # tsc -b && vite build
+npm run deploy     # build, then wrangler deploy
 ```
 
-## Data refresh workflow
+## Data refresh
 
 ```bash
 npm run data:refresh
 ```
 
-This runs:
+This fetches the AgricolaCards snapshot, ingests the Agricola Norge table, regenerates
+the hand-strength baseline, and validates every output against its schema. Optional
+manual import paths (`data:import:csv`, `data:import:bgg`) exist for BoardGameGeek
+exports and generic CSVs.
 
-1. `scripts/fetch_agricolacards.ts`
-2. `scripts/ingest_agricola_norge.ts`
-3. `scripts/generate_norge_hand_strength_baseline.ts`
-4. `scripts/validate_datasets.ts`
+See [`docs/datasets.md`](docs/datasets.md) for sources, templates, output files and
+deterministic-timestamp options.
 
-Optional manual imports:
+## Project layout
 
-```bash
-npm run data:baseline:norge-hand
-npm run data:import:csv
-npm run data:import:bgg
-```
-
-See `docs/datasets.md` for source details, templates, and output files.
-
-## Project layout (cleaned)
-
-1. `src/` app UI and data loading/search logic
-2. `scripts/` dataset fetch/ingest/import/validation scripts
-3. `public/datasets/` generated dataset JSON files used by the app
-4. `datasets/_imports` and `datasets/_bgg` manual import templates/input
-5. `public/baselines/` precomputed Monte Carlo hand-strength baselines
-6. `docs/datasets.md` data source and refresh documentation
+| Path | Contents |
+| --- | --- |
+| `src/` | app UI, data loading, search and hand-strength logic |
+| `scripts/` | dataset fetch, ingest, import and validation scripts |
+| `public/datasets/` | generated dataset JSON served by the app |
+| `public/baselines/` | precomputed Monte Carlo hand-strength baselines |
+| `datasets/_imports`, `datasets/_bgg` | manual import templates and input |
+| `docs/datasets.md` | data source and refresh documentation |
 
 ## Hosting
 
-Production build is deployed as a Cloudflare Worker (configured in `wrangler.jsonc`). The live URL is `https://agri-stat-displayer.aslakhellevik2002.workers.dev`; a custom subdomain will be added once the parent zone is on Cloudflare.
+Deployed as a Cloudflare Worker serving the static build. `wrangler.jsonc` declares
+`agricola.aslakhellevik.no` as a custom domain, so wrangler creates and manages that DNS
+record itself — never add it by hand. Declaring a route also disables the `workers.dev`
+URL; add `"workers_dev": true` if you ever want a staging URL back.
 
-```bash
-npm run deploy
-```
+## Licence
 
-## License
-
-Released under the MIT License — see `LICENSE`.
+MIT — see [`LICENSE`](LICENSE). Source code only; see **Data and takedown** above.
