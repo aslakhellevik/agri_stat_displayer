@@ -109,7 +109,8 @@ const fallbackDataset = (): DatasetPackage => ({
     edition: "mixed",
     comparabilityGroup: "norge_4p_play_agricola_counts",
     generatedAt: getGeneratedAt(),
-    licenseNote: "Approved for publication.",
+    licenseNote:
+      "Aggregated play statistics from agricola.no. No redistribution licence has been granted; included here for a non-commercial fan tool and removed on request.",
     hasFullCardText: false,
     hasStats: true,
     importStatus: {
@@ -192,7 +193,8 @@ const run = async (): Promise<void> => {
       edition: "mixed",
       comparabilityGroup: "norge_4p_play_agricola_counts",
       generatedAt,
-      licenseNote: "Approved for publication.",
+      licenseNote:
+        "Aggregated play statistics from agricola.no. No redistribution licence has been granted; included here for a non-commercial fan tool and removed on request.",
       hasFullCardText: false,
       hasStats: stats.length > 0,
       importStatus: {

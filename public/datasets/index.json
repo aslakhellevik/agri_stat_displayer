@@ -12,7 +12,7 @@
         "edition": "mixed",
         "comparabilityGroup": "norge_4p_play_agricola_counts",
         "generatedAt": "2026-02-24T22:18:11.709Z",
-        "licenseNote": "Approved for publication.",
+        "licenseNote": "Aggregated play statistics from agricola.no. No redistribution licence has been granted; included here for a non-commercial fan tool and removed on request.",
         "hasFullCardText": false,
         "hasStats": true,
         "importStatus": {
@@ -34,7 +34,7 @@
         "edition": "mixed",
         "comparabilityGroup": "metadata_reference",
         "generatedAt": "2026-02-24T22:18:10.053Z",
-        "licenseNote": "Approved for publication.",
+        "licenseNote": "Snapshot of publicly available card data from agricolacards.com. No redistribution licence has been granted; included here for a non-commercial fan tool and removed on request.",
         "hasFullCardText": true,
         "hasStats": false,
         "importStatus": {

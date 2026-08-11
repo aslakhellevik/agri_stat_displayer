@@ -2,7 +2,13 @@
 
 General Agricola card lookup PWA with card text and dataset-specific statistics.
 
-Built and maintained by Aslak Hellevik. Card text and stats are sourced from publicly available pages (see `docs/datasets.md`); each shipped dataset carries a `licenseNote` field declaring it approved for publication.
+Built and maintained by Aslak Hellevik. Card text and statistics are sourced from publicly available pages (see `docs/datasets.md`); each shipped dataset carries a `licenseNote` field recording where the data came from and on what terms.
+
+## Data and takedown
+
+This is a non-commercial fan tool. The shipped datasets are snapshots of publicly available pages from [AgricolaCards](https://www.agricolacards.com/) and [Agricola Norge](https://agricola.no/), and **no redistribution licence has been granted for either**. Agricola card text remains the copyright of its publisher.
+
+If you hold rights to any of this material and would like it removed, email <ah@aslakhellevik.no> and I will take it down — no argument required. The MIT licence below covers the source code of this project only, not the datasets in `public/datasets/`.
 
 ## What it does
 

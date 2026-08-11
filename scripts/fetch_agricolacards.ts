@@ -210,7 +210,8 @@ const run = async (): Promise<void> => {
       edition: "mixed",
       comparabilityGroup: "metadata_reference",
       generatedAt,
-      licenseNote: "Approved for publication.",
+      licenseNote:
+        "Snapshot of publicly available card data from agricolacards.com. No redistribution licence has been granted; included here for a non-commercial fan tool and removed on request.",
       hasFullCardText: outputCards.every((card) => card.text.trim().length > 0),
       hasStats: false,
       importStatus: {
