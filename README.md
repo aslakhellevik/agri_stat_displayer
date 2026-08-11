@@ -8,7 +8,7 @@ Built and maintained by Aslak Hellevik. Card text and statistics are sourced fro
 
 This is a non-commercial fan tool. The shipped datasets are snapshots of publicly available pages from [AgricolaCards](https://www.agricolacards.com/) and [Agricola Norge](https://agricola.no/), and **no redistribution licence has been granted for either**. Agricola card text remains the copyright of its publisher.
 
-If you hold rights to any of this material and would like it removed, email <ah@aslakhellevik.no> and I will take it down — no argument required. The MIT licence below covers the source code of this project only, not the datasets in `public/datasets/`.
+If you hold rights to any of this material and would like it removed, email <ah@aslakhellevik.no> and I will take it down. The MIT licence below covers the source code of this project only, not the datasets in `public/datasets/`.
 
 ## What it does
 
