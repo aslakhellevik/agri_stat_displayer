@@ -3,7 +3,7 @@
 Agricola card lookup PWA: search card text and compare per-card play statistics across
 datasets. Phone-first, installable, works offline.
 
-Live at <https://agricola.aslakhellevik.no>.
+Live at <https://agricola.aslakhellevik.no>. [Project write-up](https://aslakhellevik.no/projects/agricola-stats/).
 
 ## Data and takedown
 
